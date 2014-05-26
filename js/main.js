@@ -44,8 +44,8 @@ function iframeLoad(iframe) {
 		var outputcanvas = document.getElementById('output');
 	
 	
-		video.width = window.innerWidth;
-		video.height = window.innerHeight;
+	//	video.width = window.innerWidth;
+//		video.height = window.innerHeight;
 		PAINTRECT.width = window.innerWidth;
 		PAINTRECT.height = window.innerHeight;
 		copycanvas.width = window.innerWidth;
@@ -107,7 +107,7 @@ function iframeLoad(iframe) {
 	
 		var debugStr = "";
 		//copy tiles
-		//copy.drawImage(video, 0, 0);
+		copy.drawImage(video, 0, 0);
 		draw.clearRect(PAINTRECT.x, PAINTRECT.y,PAINTRECT.width,PAINTRECT.height);
 	
 		for(var i=0; i<tiles.length; i++){
