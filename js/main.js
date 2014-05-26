@@ -9,7 +9,7 @@ function iframeLoad(iframe) {
       $("body").append(canvas);
 	  thecanvas = canvas;
       $('base').attr('href');
-	  init();
+	 // init();
     },
     allowTaint: true,
     taintTest: false,
