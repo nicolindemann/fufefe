@@ -9,7 +9,7 @@ function iframeLoad(iframe) {
       $("body").append(canvas);
 	  thecanvas = canvas;
       $('base').attr('href');
-	//  init();
+	  init();
     },
     allowTaint: true,
     taintTest: false,
@@ -21,7 +21,7 @@ function iframeLoad(iframe) {
 
 
 
-/*
+
 	var video;
 	var copy;
 	var copycanvas;
@@ -36,6 +36,7 @@ function iframeLoad(iframe) {
 
 	function init(){
 		video = thecanvas;
+		console.log(video);
 		copycanvas = document.getElementById('sourcecopy');
 		var outputcanvas = document.getElementById('output');
 	
@@ -100,7 +101,7 @@ function iframeLoad(iframe) {
 			}
 			*/
 	//	}
-	/*
+	
 		var debugStr = "";
 		//copy tiles
 		copy.drawImage(video, 0, 0);
@@ -159,7 +160,7 @@ function iframeLoad(iframe) {
 			debug = false;
 			document.getElementById('trace').innerHTML = debugStr;
 		}
-		*//*
+		*/
 	}
 
 	function explode(x, y){
@@ -219,7 +220,7 @@ function iframeLoad(iframe) {
 		this.videoX = 0;
 		this.videoY = 0;
 	}
-*/
+
 
 $(function(){
 
