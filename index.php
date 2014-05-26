@@ -24,6 +24,9 @@ define('MAX_LOOP', 10);//Configure loop limit for redirect (location header)
 If execution has reached the time limit prevents page goes blank (off errors)
 or generate an error in PHP, which does not work with the DEBUG (from html2canvas.js)
 */
+ini_set('max_execution_time', 3600);
+
+
 $maxExec = (int) ini_get('max_execution_time');
 define('MAX_EXEC', empty($maxExec) || $maxExec < 1 ? 0 : ($maxExec - 5));//reduces 5 seconds to ensure the execution of the DEBUG
 
