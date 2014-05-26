@@ -8,7 +8,7 @@ function iframeLoad(iframe) {
     onrendered: function( canvas ) {
       //$("body").append(canvas);
 	video = document.getElementById('thevideo');
-	  
+	  thecanvas = canvas;
 	  	video.src = canvas.toDataURL("image/png");
 		
       $('base').attr('href');
@@ -46,12 +46,12 @@ function iframeLoad(iframe) {
 	
 	//	video.width = window.innerWidth;
 //		video.height = window.innerHeight;
-		PAINTRECT.width = window.innerWidth;
-		PAINTRECT.height = window.innerHeight;
-		copycanvas.width = window.innerWidth;
-		copycanvas.height = window.innerHeight;
-		outputcanvas.width = window.innerWidth;
-		outputcanvas.height = window.innerHeight;
+		PAINTRECT.width = thecanvas.width;
+		PAINTRECT.height = thecanvas.height;
+		copycanvas.width = thecanvas.width;
+		copycanvas.height = thecanvas.height;
+		outputcanvas.width = thecanvas.width;
+		outputcanvas.height = thecanvas.height;
 		copy = copycanvas.getContext('2d');
 		draw = outputcanvas.getContext('2d');
 		setInterval("processFrame()", 33);
