@@ -57,6 +57,10 @@ function iframeLoad(iframe) {
 
 		copy = copycanvas.getContext('2d');
 		draw = outputcanvas.getContext('2d');
+		
+		
+		copy.drawImage(video, 0, 0, PAINTRECT.width,PAINTRECT.height);
+		
 		setInterval("processFrame()", 33);
 	}
 	function createTiles(){
@@ -110,7 +114,6 @@ function iframeLoad(iframe) {
 	
 		var debugStr = "";
 		//copy tiles
-		copy.drawImage(video, 0, 0, PAINTRECT.width,PAINTRECT.height);
 		draw.clearRect(PAINTRECT.x, PAINTRECT.y,PAINTRECT.width,PAINTRECT.height);
 	
 		for(var i=0; i<tiles.length; i++){
