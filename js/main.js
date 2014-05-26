@@ -206,7 +206,7 @@ $(function () {
             xhr2: false,
             url: urlParts.href
         },
-        url: "http://fufefe.de/index.php",
+        url: "http://" + window.location.host + " /index.php",
         dataType: "jsonp",
         success: function (html) {
             iframe = document.createElement('iframe');
