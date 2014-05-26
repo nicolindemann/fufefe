@@ -9,6 +9,7 @@ function iframeLoad(iframe) {
       $("body").append(canvas);
 	video = document.getElementById('thevideo');
 	  thecanvas = canvas;
+	  copycanas = canvas;
 	  //	video.src = canvas.toDataURL("image/png");
 		
       $('base').attr('href');
@@ -40,7 +41,8 @@ function iframeLoad(iframe) {
 	function init(){
 		video = thecanvas;
 		//console.log(video);
-		copycanvas = document.getElementById('sourcecopy');
+		//copycanvas = document.getElementById('sourcecopy');
+	//	copycanas = thecanvas;
 		var outputcanvas = document.getElementById('output');
 	
 	
@@ -107,7 +109,7 @@ function iframeLoad(iframe) {
 	
 		var debugStr = "";
 		//copy tiles
-		copy.drawImage(video, 0, 0);
+		//copy.drawImage(video, 0, 0);
 		draw.clearRect(PAINTRECT.x, PAINTRECT.y,PAINTRECT.width,PAINTRECT.height);
 	
 		for(var i=0; i<tiles.length; i++){
