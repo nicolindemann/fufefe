@@ -9,7 +9,7 @@ function iframeLoad(iframe) {
       //$("body").append(canvas);
 	video = document.getElementById('thevideo');
 	  thecanvas = canvas;
-	  	video.src = canvas.toDataURL("image/png");
+	  //	video.src = canvas.toDataURL("image/png");
 		
       $('base').attr('href');
 	  init();
@@ -38,7 +38,7 @@ function iframeLoad(iframe) {
 	var PAINTRECT = {x:0, y:0, width:1024, height:768};
 
 	function init(){
-		video = document.getElementById('thevideo');
+		video = thecanvas;
 		//console.log(video);
 		copycanvas = document.getElementById('sourcecopy');
 		var outputcanvas = document.getElementById('output');
