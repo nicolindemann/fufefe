@@ -38,6 +38,16 @@ function iframeLoad(iframe) {
 
 	function init(){
 		video = document.getElementById('thevideo');
+		
+		
+		PAINTRECT.width = video.width;
+		PAINTRECT.height = video.height;
+		copycanvas.width = video.width;
+		copycanvas.height = video.height;
+		outputcanvas.width = video.width;
+		outputcanvas.height = video.height;
+		
+		
 		//console.log(video);
 		copycanvas = document.getElementById('sourcecopy');
 		copycanas = thecanvas;
@@ -45,12 +55,7 @@ function iframeLoad(iframe) {
 	
 	
 
-		PAINTRECT.width = video.width;
-		PAINTRECT.height = video.height;
-		copycanvas.width = video.width;
-		copycanvas.height = video.height;
-		outputcanvas.width = video.width;
-		outputcanvas.height = video.height;
+
 		copy = copycanvas.getContext('2d');
 		draw = outputcanvas.getContext('2d');
 		setInterval("processFrame()", 33);
