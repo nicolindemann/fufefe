@@ -83,7 +83,7 @@ function iframeLoad(iframe) {
 			if(SOURCERECT.width == 0){
 				//SOURCERECT = {x:0,y:0,width:video.videoWidth,height:video.videoHeight};
 				//console.log(video);
-				SOURCERECT = {x:0,y:0,width:video.width,height:video.height};
+				SOURCERECT = {x:0,y:0,width:copycanvas.width,height:copycanvas.height};
 			
 				createTiles();
 			}
