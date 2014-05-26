@@ -1,4 +1,3 @@
-var thecanvas;
 
 function iframeLoad(iframe) {
 
@@ -39,6 +38,8 @@ function iframeLoad(iframe) {
 	function init(){
 		video = document.getElementById('thevideo');
 		
+		copycanvas = document.getElementById('sourcecopy');
+		var outputcanvas = document.getElementById('output');
 		
 		PAINTRECT.width = video.width;
 		PAINTRECT.height = video.height;
@@ -49,9 +50,7 @@ function iframeLoad(iframe) {
 		
 		
 		//console.log(video);
-		copycanvas = document.getElementById('sourcecopy');
-		copycanas = thecanvas;
-		var outputcanvas = document.getElementById('output');
+
 	
 	
 
