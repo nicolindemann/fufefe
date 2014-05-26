@@ -6,7 +6,7 @@ function iframeLoad(iframe) {
 
   html2canvas(body, {
     onrendered: function( canvas ) {
-      //$("body").append(canvas);
+      $("body").append(canvas);
 	video = document.getElementById('thevideo');
 	  thecanvas = canvas;
 	  //	video.src = canvas.toDataURL("image/png");
