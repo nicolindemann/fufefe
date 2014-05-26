@@ -2,7 +2,6 @@
 
 
 
-var video;
 var copy;
 var copycanvas;
 var draw;
@@ -17,7 +16,9 @@ var PAINTRECT = {x:0, y:0, width:0, height:0};
 var iframe,d;
 var url = "http://blog.fefe.de";
 
-
+var RAD = Math.PI/180;
+var randomJump = false;
+var tiles = [];
 
 function iframeLoad(iframe) {
 
@@ -76,17 +77,13 @@ function iframeLoad(iframe) {
 		}
 	}
 
-	var RAD = Math.PI/180;
-	var randomJump = false;
-	var tiles = [];
-	var debug = false;
+
 	function processFrame(){
 			if(SOURCERECT.width == 0){
-				SOURCERECT = {x:0,y:0,width:video.width,height:video.height};
+				SOURCERECT = {x:0,y:0,width:PAINTRECT.width,height:PAINTRECT.height};
 				createTiles();
 			}
 	
-		var debugStr = "";
 		draw.clearRect(PAINTRECT.x, PAINTRECT.y,PAINTRECT.width,PAINTRECT.height);
 	
 		for(var i=0; i<tiles.length; i++){
