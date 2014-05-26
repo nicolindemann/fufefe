@@ -1,4 +1,22 @@
 
+
+
+
+var video;
+var copy;
+var copycanvas;
+var draw;
+
+var TILE_WIDTH = 16;
+var TILE_HEIGHT = 16;
+var TILE_CENTER_WIDTH = 8;
+var TILE_CENTER_HEIGHT = 8;
+var SOURCERECT = {x:0, y:0, width:0, height:0};
+var PAINTRECT = {x:0, y:0, width:0, height:0};
+
+
+
+
 function iframeLoad(iframe) {
 
   var body = $(iframe).contents().find('body');
@@ -10,7 +28,32 @@ function iframeLoad(iframe) {
 	  	video.src = canvas.toDataURL("image/png");
 		
       $('base').attr('href');
-	  init();
+	  
+			
+	  console.log(canvas.width);
+	  console.log(canvas.height);
+			
+  		copycanvas = document.getElementById('sourcecopy');
+  		var outputcanvas = document.getElementById('output');
+		
+  		PAINTRECT.width = video.width;
+  		PAINTRECT.height = video.height;
+  		copycanvas.width = video.width;
+  		copycanvas.height = video.height;
+  		outputcanvas.width = video.width;
+  		outputcanvas.height = video.height;
+
+  		copy = copycanvas.getContext('2d');
+  		draw = outputcanvas.getContext('2d');
+		
+		
+  		copy.drawImage(canvas, 0, 0, PAINTRECT.width,PAINTRECT.height);
+		
+  		setInterval("processFrame()", 33);
+	
+	
+	
+	
     },
     allowTaint: true,
     taintTest: false,
@@ -21,48 +64,6 @@ function iframeLoad(iframe) {
 
 
 
-
-
-	var video;
-	var copy;
-	var copycanvas;
-	var draw;
-
-	var TILE_WIDTH = 16;
-	var TILE_HEIGHT = 16;
-	var TILE_CENTER_WIDTH = 8;
-	var TILE_CENTER_HEIGHT = 8;
-	var SOURCERECT = {x:0, y:0, width:0, height:0};
-	var PAINTRECT = {x:0, y:0, width:1024, height:768};
-
-	function init(){
-		video = document.getElementById('thevideo');
-		
-		copycanvas = document.getElementById('sourcecopy');
-		var outputcanvas = document.getElementById('output');
-		
-		PAINTRECT.width = video.width;
-		PAINTRECT.height = video.height;
-		copycanvas.width = video.width;
-		copycanvas.height = video.height;
-		outputcanvas.width = video.width;
-		outputcanvas.height = video.height;
-		
-		
-		//console.log(video);
-
-	
-	
-
-
-		copy = copycanvas.getContext('2d');
-		draw = outputcanvas.getContext('2d');
-		
-		
-		copy.drawImage(video, 0, 0, PAINTRECT.width,PAINTRECT.height);
-		
-		setInterval("processFrame()", 33);
-	}
 	function createTiles(){
 		var offsetX = TILE_CENTER_WIDTH+(PAINTRECT.width-SOURCERECT.width)/2;
 		var offsetY = TILE_CENTER_HEIGHT+(PAINTRECT.height-SOURCERECT.height)/2;
@@ -89,37 +90,17 @@ function iframeLoad(iframe) {
 	var tiles = [];
 	var debug = false;
 	function processFrame(){
-		//if(!isNaN(video.duration)){
 			if(SOURCERECT.width == 0){
-				//SOURCERECT = {x:0,y:0,width:video.videoWidth,height:video.videoHeight};
-				//console.log(video);
 				SOURCERECT = {x:0,y:0,width:video.width,height:video.height};
-			
 				createTiles();
 			}
-			//this is to keep my sanity while developing
-			/*
-			if(randomJump){
-				randomJump = false;
-				video.currentTime = Math.random()*video.duration;
-			}
-			*/
-			//loop
-			/*
-			if(video.currentTime == video.duration){
-				video.currentTime = 0;
-			}
-			*/
-	//	}
 	
 		var debugStr = "";
-		//copy tiles
 		draw.clearRect(PAINTRECT.x, PAINTRECT.y,PAINTRECT.width,PAINTRECT.height);
 	
 		for(var i=0; i<tiles.length; i++){
 			var tile = tiles[i];
 			if(tile.force > 0.0001){
-				//expand
 				tile.moveX *= tile.force;
 				tile.moveY *= tile.force;
 				tile.moveRotation *= tile.force;
@@ -164,12 +145,6 @@ function iframeLoad(iframe) {
 			draw.drawImage(copycanvas, tile.videoX, tile.videoY, TILE_WIDTH, TILE_HEIGHT, -TILE_CENTER_WIDTH, -TILE_CENTER_HEIGHT, TILE_WIDTH, TILE_HEIGHT);
 			draw.restore();
 		}
-		/*
-		if(debug){
-			debug = false;
-			document.getElementById('trace').innerHTML = debugStr;
-		}
-		*/
 	}
 
 	function explode(x, y){
@@ -232,35 +207,25 @@ function iframeLoad(iframe) {
 
 
 $(function(){
-
-  var iframe,d;
-
+  	var iframe,d;
     var url = "http://blog.fefe.de"
-
     var urlParts = document.createElement('a');
     urlParts.href = url;
-
     $.ajax({
       data: {
         xhr2:false,
         url:urlParts.href
-
       },
-      url: "http://fufefe.herokuapp.com",
+      url: "http://fufefe.herokuapp.com/proxy.php",
       dataType: "jsonp",
       success: function(html){
         iframe = document.createElement('iframe');
         $(iframe).css({
           'visibility':'hidden'
         }).width($(window).width()).height($(window).height());
-        $('body').append(iframe);
-		console.log(html);
-		
+        $('body').append(iframe);		
 		iframe.src = html;
         $(iframe).load(iframeLoad.bind(null, iframe));
-
       }
-
-
     });
 });
