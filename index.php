@@ -15,7 +15,6 @@
     <body>
 
 	<div style="display:none">
-		<img id="thevideo"/>
 		<canvas id="sourcecopy"></canvas>
 	</div>
 	<div>
