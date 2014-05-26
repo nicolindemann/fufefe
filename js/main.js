@@ -46,7 +46,7 @@ function iframeLoad(iframe) {
 
             copy.drawImage(canvas, 0, 0, PAINTRECT.width, PAINTRECT.height);
 
-            setInterval("processFrame()", 33);
+            setInterval("processFrame()", 60);
 
         },
         allowTaint: true,
