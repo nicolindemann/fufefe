@@ -240,7 +240,7 @@ $(function(){
       success: function(html){
         iframe = document.createElement('iframe');
         $(iframe).css({
-          'display':'none'
+          'visibility':'hidden'
         }).width($(window).width()).height($(window).height());
         $('body').append(iframe);
 		console.log(html);
