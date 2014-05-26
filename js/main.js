@@ -41,8 +41,8 @@ function iframeLoad(iframe) {
 		var outputcanvas = document.getElementById('output');
 	
 	
-		video.width = window.innerWidth;
-		video.height = window.innerHeight;
+	//	video.width = window.innerWidth;
+//		video.height = window.innerHeight;
 		PAINTRECT.width = window.innerWidth;
 		PAINTRECT.height = window.innerHeight;
 		copycanvas.width = window.innerWidth;
