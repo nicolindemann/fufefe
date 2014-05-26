@@ -206,7 +206,7 @@ $(function () {
             xhr2: false,
             url: urlParts.href
         },
-        url: "http://fufefe.herokuapp.com/index.php",
+        url: "http://fufefe.de/index.php",
         dataType: "jsonp",
         success: function (html) {
             iframe = document.createElement('iframe');
