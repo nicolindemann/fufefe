@@ -6,8 +6,11 @@ function iframeLoad(iframe) {
 
   html2canvas(body, {
     onrendered: function( canvas ) {
-      $("body").append(canvas);
-	  thecanvas = canvas;
+      //$("body").append(canvas);
+	video = document.getElementById('thevideo');
+	  
+	  	video.src = canvas.toDataURL("image/png");
+		
       $('base').attr('href');
 	  init();
     },
@@ -35,14 +38,14 @@ function iframeLoad(iframe) {
 	var PAINTRECT = {x:0, y:0, width:1024, height:768};
 
 	function init(){
-		copycanvas = thecanvas;
+		video = document.getElementById('thevideo');
 		//console.log(video);
-		//copycanvas = document.getElementById('sourcecopy');
+		copycanvas = document.getElementById('sourcecopy');
 		var outputcanvas = document.getElementById('output');
 	
 	
-	//	video.width = window.innerWidth;
-//		video.height = window.innerHeight;
+		video.width = window.innerWidth;
+		video.height = window.innerHeight;
 		PAINTRECT.width = window.innerWidth;
 		PAINTRECT.height = window.innerHeight;
 		copycanvas.width = window.innerWidth;
@@ -83,7 +86,7 @@ function iframeLoad(iframe) {
 			if(SOURCERECT.width == 0){
 				//SOURCERECT = {x:0,y:0,width:video.videoWidth,height:video.videoHeight};
 				//console.log(video);
-				SOURCERECT = {x:0,y:0,width:copycanvas.width,height:copycanvas.height};
+				SOURCERECT = {x:0,y:0,width:video.width,height:video.height};
 			
 				createTiles();
 			}
