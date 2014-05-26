@@ -4,9 +4,7 @@ function iframeLoad(iframe) {
 
   html2canvas(body, {
     onrendered: function( canvas ) {
-      $("#content").empty().append(canvas);
-      $('#getscreenshot').prop('disabled', false);
-      $('base').attr('href',"");
+      $("body").empty().append(canvas);
     },
     allowTaint: true,
     taintTest: false,
@@ -19,7 +17,6 @@ $(function(){
 
   var iframe,d;
 
-    e.preventDefault();
     $(this).prop('disabled',true);
     var url = "http://blog.fefe.de"
     //$('#content').append($('<img />').attr('src','/site/img/loading.gif').css('margin-top',40));
