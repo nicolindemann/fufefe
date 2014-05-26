@@ -14,6 +14,8 @@ var TILE_CENTER_HEIGHT = 8;
 var SOURCERECT = {x:0, y:0, width:0, height:0};
 var PAINTRECT = {x:0, y:0, width:0, height:0};
 
+var iframe,d;
+var url = "http://blog.fefe.de";
 
 
 
@@ -23,36 +25,25 @@ function iframeLoad(iframe) {
 
   html2canvas(body, {
     onrendered: function( canvas ) {
-      $("body").append(canvas);
-	video = document.getElementById('thevideo');
-	  	video.src = canvas.toDataURL("image/png");
-		
-      $('base').attr('href');
 	  
-			
-	  console.log(canvas.width);
-	  console.log(canvas.height);
-			
+	  iframe.parentElement.removeChild(iframe);
+
   		copycanvas = document.getElementById('sourcecopy');
   		var outputcanvas = document.getElementById('output');
 		
-  		PAINTRECT.width = video.width;
-  		PAINTRECT.height = video.height;
-  		copycanvas.width = video.width;
-  		copycanvas.height = video.height;
-  		outputcanvas.width = video.width;
-  		outputcanvas.height = video.height;
+  		PAINTRECT.width = canvas.width;
+  		PAINTRECT.height = canvas.height;
+  		copycanvas.width = canvas.width;
+  		copycanvas.height = canvas.height;
+  		outputcanvas.width = canvas.width;
+  		outputcanvas.height = canvas.height;
 
   		copy = copycanvas.getContext('2d');
   		draw = outputcanvas.getContext('2d');
 		
-		
   		copy.drawImage(canvas, 0, 0, PAINTRECT.width,PAINTRECT.height);
 		
   		setInterval("processFrame()", 33);
-	
-	
-	
 	
     },
     allowTaint: true,
@@ -207,8 +198,6 @@ function iframeLoad(iframe) {
 
 
 $(function(){
-  	var iframe,d;
-    var url = "http://blog.fefe.de"
     var urlParts = document.createElement('a');
     urlParts.href = url;
     $.ajax({
