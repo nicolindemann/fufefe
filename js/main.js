@@ -20,22 +20,8 @@ function iframeLoad(iframe) {
 $(function(){
 
   var iframe,d;
-  iframe = document.createElement('iframe');
-  
-  $(iframe).css({
-    'visibility':'hidden'
-  }).width($(window).width()).height($(window).height());
-  $('body').append(iframe);
-console.log(html);
-
-iframe.src = "http://blog.fefe.de";
-
-$(iframe).load(iframeLoad.bind(null, iframe));
-
-/*
 
     var url = "http://blog.fefe.de"
-    //$('#content').append($('<img />').attr('src','/site/img/loading.gif').css('margin-top',40));
 
     var urlParts = document.createElement('a');
     urlParts.href = url;
@@ -63,5 +49,4 @@ $(iframe).load(iframeLoad.bind(null, iframe));
 
 
     });
-*/
 });
