@@ -6,7 +6,7 @@ function iframeLoad(iframe) {
 
   html2canvas(body, {
     onrendered: function( canvas ) {
-      $("#content").empty().append(canvas);
+      $("body").empty().append(canvas);
 	  thecanvas = canvas;
       $('base').attr('href');
 	  init();
