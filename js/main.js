@@ -4,7 +4,8 @@ function iframeLoad(iframe) {
 
   html2canvas(body, {
     onrendered: function( canvas ) {
-      $("body").empty().append(canvas);
+      $("#content").empty().append(canvas);
+      $('base').attr('href',"");
     },
     allowTaint: true,
     taintTest: false,
@@ -13,11 +14,26 @@ function iframeLoad(iframe) {
 
 }
 
+
+
+
 $(function(){
 
   var iframe,d;
+  iframe = document.createElement('iframe');
+  
+  $(iframe).css({
+    'visibility':'hidden'
+  }).width($(window).width()).height($(window).height());
+  $('body').append(iframe);
+console.log(html);
 
-    $(this).prop('disabled',true);
+iframe.src = "http://blog.fefe.de";
+
+$(iframe).load(iframeLoad.bind(null, iframe));
+
+/*
+
     var url = "http://blog.fefe.de"
     //$('#content').append($('<img />').attr('src','/site/img/loading.gif').css('margin-top',40));
 
@@ -41,12 +57,11 @@ $(function(){
 		console.log(html);
 		
 		iframe.src = html;
-		iframe.style.display = 'none';
         $(iframe).load(iframeLoad.bind(null, iframe));
 
       }
 
 
     });
-
+*/
 });
