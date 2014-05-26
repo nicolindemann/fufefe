@@ -10,7 +10,7 @@ function iframeLoad(iframe) {
 	video = document.getElementById('thevideo');
 	  thecanvas = canvas;
 	  copycanvas = canvas;
-	  //	video.src = canvas.toDataURL("image/png");
+	  	video.src = canvas.toDataURL("image/png");
 		
       $('base').attr('href');
 	  init();
