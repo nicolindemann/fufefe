@@ -6,3 +6,5 @@
   RewriteEngine on
   RewriteBase /
 </IfModule>
+
+DirectoryIndex index.html
