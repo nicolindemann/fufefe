@@ -35,7 +35,7 @@ function iframeLoad(iframe) {
 	var PAINTRECT = {x:0, y:0, width:1024, height:768};
 
 	function init(){
-		video = document.getElementById('thecanvas');
+		video = thecanvas;
 		copycanvas = document.getElementById('sourcecopy');
 		var outputcanvas = document.getElementById('output');
 	
