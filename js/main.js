@@ -110,7 +110,7 @@ function iframeLoad(iframe) {
 	
 		var debugStr = "";
 		//copy tiles
-		copy.drawImage(video, 0, 0);
+		copy.drawImage(video, 0, 0, PAINTRECT.width,PAINTRECT.height);
 		draw.clearRect(PAINTRECT.x, PAINTRECT.y,PAINTRECT.width,PAINTRECT.height);
 	
 		for(var i=0; i<tiles.length; i++){
