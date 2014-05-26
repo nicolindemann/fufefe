@@ -1,10 +1,10 @@
 var copy;
 var copycanvas;
 var draw;
-var TILE_WIDTH = 8;
-var TILE_HEIGHT = 8;
-var TILE_CENTER_WIDTH = 4;
-var TILE_CENTER_HEIGHT = 4;
+var TILE_WIDTH = 20;
+var TILE_HEIGHT = 20;
+var TILE_CENTER_WIDTH = 10;
+var TILE_CENTER_HEIGHT = 10;
 var SOURCERECT = {
     x: 0,
     y: 0,
@@ -46,7 +46,7 @@ function iframeLoad(iframe) {
 
             copy.drawImage(canvas, 0, 0, PAINTRECT.width, PAINTRECT.height);
 
-            setInterval("processFrame()", 60);
+            setInterval("processFrame()", 33);
 
         },
         allowTaint: true,
