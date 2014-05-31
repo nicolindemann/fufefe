@@ -17,8 +17,5 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/nicolindemann/fufefe.de.git"
-  },
-  "scripts": {
-    "postinstall": "grunt build"
   }
 }
