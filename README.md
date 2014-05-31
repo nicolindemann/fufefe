@@ -1,6 +1,8 @@
 www.fufefe.de
 =====================
 
+[![Dependency Status](https://www.versioneye.com/user/projects/538a5ef714c15869e7000074/badge.svg)](https://www.versioneye.com/user/projects/538a5ef714c15869e7000074) [![Dependency Status](https://www.versioneye.com/user/projects/538a5ef214c158b8bc000052/badge.svg)](https://www.versioneye.com/user/projects/538a5ef214c158b8bc000052)
+
 für die ewigen nörgler.
 
 
