@@ -46,7 +46,7 @@ function iframeLoad(iframe) {
 
             copy.drawImage(canvas, 0, 0, PAINTRECT.width, PAINTRECT.height);
 
-            setInterval("processFrame()", 33);
+            setInterval(processFrame, 33);
 
         },
         allowTaint: true,
@@ -81,7 +81,7 @@ function createTiles() {
 
 
 function processFrame() {
-    if (SOURCERECT.width == 0) {
+    if (SOURCERECT.width === 0) {
         SOURCERECT = {
             x: 0,
             y: 0,
@@ -110,7 +110,7 @@ function processFrame() {
             if (tile.currentY <= 0 || tile.currentY >= PAINTRECT.height) {
                 tile.moveY *= -1;
             }
-        } else if (tile.rotation != 0 || tile.currentX != tile.originX || tile.currentY != tile.originY) {
+        } else if (tile.rotation !== 0 || tile.currentX !== tile.originX || tile.currentY !== tile.originY) {
             //contract
             var diffx = (tile.originX - tile.currentX) * 0.2;
             var diffy = (tile.originY - tile.currentY) * 0.2;

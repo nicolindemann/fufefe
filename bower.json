@@ -1,0 +1,10 @@
+{
+  "name": "fufefe",
+  "version": "1.0.1",
+  "dependencies": {
+	"jquery" : "2.1.0",
+    "modernizr" : "2.8.2",
+    "html2canvas" : "0.4.1",
+    "normalize-css" : "3.0.1"
+  }
+}
