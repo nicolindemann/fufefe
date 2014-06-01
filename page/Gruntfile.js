@@ -30,20 +30,20 @@ module.exports = function (grunt) {
         
         cssmin: {
             minify: {
-                src: 'public/css/style.css',
-                dest: 'public/css/style.min.css',
+                src: '../public/css/style.min.css',
+                dest: '../public/css/style.min.css',
                 keepSpecialComments: '0'
             }
         },
 
         jshint: {
-            files: ["src/js/main.js", "Gruntfile.js"]
+            files: ["../src/js/main.js", "Gruntfile.js"]
         },
         
         uglify: {
             dist: {
                 files: {
-                    'public/js/script.min.js': ['public/js/script.min.js'],
+                    '../public/js/script.min.js': ['../public/js/script.min.js'],
                 }
             }
         },
@@ -56,15 +56,15 @@ module.exports = function (grunt) {
                 src: ['components/jquery/**/*.js',
                       'components/modernizr/modernizr.js',
                       'components/html2canvas/**/*.js',
-                      'src/js/*.js'],
-                dest: 'public/js/script.min.js'
+                      '../src/js/*.js'],
+                dest: '../public/js/script.min.js'
             }
         },
         
         copy: {
             main: {
               files: [
-                {src: 'components/normalize-css/normalize.css', dest: 'public/css/style.css'},
+                {src: 'components/normalize-css/normalize.css', dest: '../public/css/style.min.css'},
 
               ]
             }

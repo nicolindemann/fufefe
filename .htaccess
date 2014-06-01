@@ -7,4 +7,4 @@
   RewriteBase /
 </IfModule>
 
-DirectoryIndex index.html
+DirectoryIndex page/index.html
