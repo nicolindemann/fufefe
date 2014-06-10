@@ -1,6 +1,8 @@
 www.fufefe.de
 =====================
 
+[![Dependency Status](https://gemnasium.com/nicolindemann/fufefe.svg)](https://gemnasium.com/nicolindemann/fufefe)
+
 für die ewigen nörgler.
 
 
