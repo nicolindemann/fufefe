@@ -1,3 +1,6 @@
+/*jshint browser: true */
+/*global html2canvas */
+
 var copy;
 var copycanvas;
 var draw;
