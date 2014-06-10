@@ -1,0 +1,4 @@
+web1:
+  name: fufefe
+  shared_writable_dirs:
+    - tmp
