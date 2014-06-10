@@ -1,7 +1,7 @@
 www.fufefe.de
 =====================
 
-[![Dependency Status](https://gemnasium.com/nicolindemann/fufefe.svg)](https://gemnasium.com/nicolindemann/fufefe)
+[![Dependency Status](https://gemnasium.com/nicolindemann/fufefe.svg)](https://gemnasium.com/nicolindemann/fufefe) [![Build Status](https://travis-ci.org/nicolindemann/fufefe.svg?branch=master)](https://travis-ci.org/nicolindemann/fufefe)
 
 für die ewigen nörgler.
 
