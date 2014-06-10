@@ -5,7 +5,7 @@ www.fufefe.de
 
 für die ewigen nörgler.
 
-
+[ ![Codeship Status for nicolindemann/fufefe](https://www.codeship.io/projects/f93f7770-cb29-0131-ec9e-32e5a64033be/status?branch=master)](https://www.codeship.io/projects/22589)
 
 Sources:
 
