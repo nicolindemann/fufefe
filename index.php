@@ -65,6 +65,7 @@ function get_error()
     if (function_exists('error_get_last') === false) {
         return error_get_last();
     }
+
     return null;
 }
 /**
@@ -96,13 +97,14 @@ function json_encode_string($s)
         } else {
             if (isset($vetor[$c]) === true) {
                 $tmp = $vetor[$c];
-            } else if (($c > 31) === false) {
+            } elseif (($c > 31) === false) {
                 $d   = '000' . dechex($c);
                 $tmp = '\\u' . substr($d, strlen($d) - 4);
             }
         }
         $enc .= $tmp;
     }
+
     return '"' . $enc . '"';
 }
 /**
@@ -158,6 +160,7 @@ function relative2absolute($u, $m)
         if (isset($pu['fragment']) !== false) {
             $m .= '#' . $pu['fragment'];
         }
+
         return relative2absolute($pu['scheme'] . '://' . $pu['host'], $m);
     }
     if (preg_match('/^[?#]/', $m) !== 0) {
@@ -201,6 +204,7 @@ function relative2absolute($u, $m)
     $ab = null;
     $pm = null;
     $pu = null;
+
     return $m;
 }
 /**
@@ -221,6 +225,7 @@ function createFolder()
     if (file_exists(PATH) === false || is_dir(PATH) === false) {
         return true === mkdir(PATH, 755);
     }
+
     return true;
 }
 /**
@@ -252,6 +257,7 @@ function createTmpFile($basename, $isEncode)
             'source' => $source
         );
     }
+
     return false;
 }
 /**
@@ -311,6 +317,7 @@ function downloadSource($url, $toSource, $caller)
                 if (preg_match('#^HTTP[/]1[.]#i', $data) === 0) {
                     fclose($fp); //Close connection
                     $data = '';
+
                     return array(
                         'error' => 'This request did not return a HTTP response valid'
                     );
@@ -319,6 +326,7 @@ function downloadSource($url, $toSource, $caller)
                 if ($tmp === '304') {
                     fclose($fp); //Close connection
                     $data = '';
+
                     return array(
                         'error' => 'The image returned HTTP_304, this status code is incorrect because the html2canvas not send Etag'
                     );
@@ -327,6 +335,7 @@ function downloadSource($url, $toSource, $caller)
                     if ($isRedirect === false && $tmp !== '200') {
                         fclose($fp);
                         $data = '';
+
                         return array(
                             'error' => 'The image returned HTTP_' . $tmp
                         );
@@ -356,14 +365,16 @@ function downloadSource($url, $toSource, $caller)
                             'error' => '"Location:" header redirected for a non-http url (' . $data . ')'
                         );
                     }
+
                     return downloadSource($data, $toSource, $caller);
-                } else if (preg_match('#^content[-]length[:]( 0|0)$#i', $data) !== 0) {
+                } elseif (preg_match('#^content[-]length[:]( 0|0)$#i', $data) !== 0) {
                     fclose($fp);
                     $data = '';
+
                     return array(
                         'error' => 'source is blank (Content-length: 0)'
                     );
-                } else if (preg_match('#^content[-]type[:]#i', $data) !== 0) {
+                } elseif (preg_match('#^content[-]type[:]#i', $data) !== 0) {
                     $mime = trim(preg_replace('/[;]([\\s\\S]|)+$/', '', str_replace('content-type:', '', str_replace('/x-', '/', strtolower($data)))));
                     if (in_array($mime, array(
                         'image/bmp',
@@ -379,23 +390,26 @@ function downloadSource($url, $toSource, $caller)
                     )) === false) {
                         fclose($fp);
                         $data = '';
+
                         return array(
                             'error' => $mime . ' mimetype is invalid'
                         );
                     }
-                } else if ($isBody === false && trim($data) === '') {
+                } elseif ($isBody === false && trim($data) === '') {
                     $isBody = true;
                     continue;
                 }
-            } else if ($isRedirect === true) {
+            } elseif ($isRedirect === true) {
                 fclose($fp);
                 $data = '';
+
                 return array(
                     'error' => 'The response should be a redirect "' . $url . '", but did not inform which header "Localtion:"'
                 );
-            } else if ($mime === null) {
+            } elseif ($mime === null) {
                 fclose($fp);
                 $data = '';
+
                 return array(
                     'error' => 'Not set the mimetype from "' . $url . '"'
                 );
@@ -410,11 +424,12 @@ function downloadSource($url, $toSource, $caller)
             return array(
                 'error' => 'Content body is empty'
             );
-        } else if ($mime === null) {
+        } elseif ($mime === null) {
             return array(
                 'error' => 'Not set the mimetype from "' . $url . '"'
             );
         }
+
         return array(
             'mime' => $mime
         );
@@ -427,32 +442,32 @@ if (isset($_SERVER['HTTP_HOST']) === false || strlen($_SERVER['HTTP_HOST']) === 
     $response = array(
         'error' => 'The client did not send the Host header'
     );
-} else if (isset($_SERVER['SERVER_PORT']) === false) {
+} elseif (isset($_SERVER['SERVER_PORT']) === false) {
     $response = array(
         'error' => 'The Server-proxy did not send the PORT (configure PHP)'
     );
-} else if (MAX_EXEC < 10) {
+} elseif (MAX_EXEC < 10) {
     $response = array(
         'error' => 'Execution time is less 15 seconds, configure this with ini_set/set_time_limit or "php.ini" (if safe_mode is enabled), recommended time is 30 seconds or more'
     );
-} else if (MAX_EXEC <= TIMEOUT) {
+} elseif (MAX_EXEC <= TIMEOUT) {
     $response = array(
         'error' => 'The execution time is not configured enough to TIMEOUT in SOCKET, configure this with ini_set/set_time_limit or "php.ini" (if safe_mode is enabled), recommended that the "max_execution_time =;" be a minimum of 5 seconds longer or reduce the TIMEOUT in "define(\'TIMEOUT\', ' . TIMEOUT . ');"'
     );
-} else if (isset($_GET['url']) === false || strlen($_GET['url']) === 0) {
+} elseif (isset($_GET['url']) === false || strlen($_GET['url']) === 0) {
     $response = array(
         'error' => 'No such parameter "url"'
     );
-} else if (isHttpUrl($_GET['url']) === false) {
+} elseif (isHttpUrl($_GET['url']) === false) {
     $response = array(
         'error' => 'Only http scheme and https scheme are allowed'
     );
-} else if (preg_match('#[^A-Za-z0-9_[.]\\[\\]]#', $param_callback) !== 0) {
+} elseif (preg_match('#[^A-Za-z0-9_[.]\\[\\]]#', $param_callback) !== 0) {
     $response       = array(
         'error' => 'Parameter "callback" contains invalid characters'
     );
     $param_callback = JSLOG;
-} else if (createFolder() === false) {
+} elseif (createFolder() === false) {
     $err      = get_error();
     $response = array(
         'error' => 'Can not create directory' . ($err !== null && isset($err['message']) && strlen($err['message']) > 0 ? (': ' . $err['message']) : '')
@@ -478,7 +493,7 @@ if (is_array($response) && isset($response['mime']) && strlen($response['mime'])
         $response = array(
             'error' => 'An error and the file can not be found occurred, try again'
         );
-    } else if (filesize($tmp['location']) < 1) {
+    } elseif (filesize($tmp['location']) < 1) {
         $response = array(
             'error' => 'Download the file was made, but there was some problem and now the file is empty, try again'
         );
