@@ -36,6 +36,10 @@ function iframeLoad(iframe) {
 
             copycanvas = document.getElementById('sourcecopy');
             var outputcanvas = document.getElementById('output');
+            
+            outputcanvas.onmousedown = function (event) {
+                dropBomb(event, event.target);
+            };
 
             PAINTRECT.width = canvas.width;
             PAINTRECT.height = canvas.height;
@@ -97,52 +101,55 @@ function processFrame() {
     draw.clearRect(PAINTRECT.x, PAINTRECT.y, PAINTRECT.width, PAINTRECT.height);
 
     for (var i = 0; i < tiles.length; i++) {
-        var tile = tiles[i];
-        if (tile.force > 0.0001) {
-            tile.moveX *= tile.force;
-            tile.moveY *= tile.force;
-            tile.moveRotation *= tile.force;
-            tile.currentX += tile.moveX;
-            tile.currentY += tile.moveY;
-            tile.rotation += tile.moveRotation;
-            tile.rotation %= 360;
-            tile.force *= 0.9;
-            if (tile.currentX <= 0 || tile.currentX >= PAINTRECT.width) {
-                tile.moveX *= -1;
-            }
-            if (tile.currentY <= 0 || tile.currentY >= PAINTRECT.height) {
-                tile.moveY *= -1;
-            }
-        } else if (tile.rotation !== 0 || tile.currentX !== tile.originX || tile.currentY !== tile.originY) {
-            //contract
-            var diffx = (tile.originX - tile.currentX) * 0.2;
-            var diffy = (tile.originY - tile.currentY) * 0.2;
-            var diffRot = (0 - tile.rotation) * 0.2;
-
-            if (Math.abs(diffx) < 0.5) {
-                tile.currentX = tile.originX;
-            } else {
-                tile.currentX += diffx;
-            }
-            if (Math.abs(diffy) < 0.5) {
-                tile.currentY = tile.originY;
-            } else {
-                tile.currentY += diffy;
-            }
-            if (Math.abs(diffRot) < 0.5) {
-                tile.rotation = 0;
-            } else {
-                tile.rotation += diffRot;
-            }
-        } else {
-            tile.force = 0;
-        }
-        draw.save();
-        draw.translate(tile.currentX, tile.currentY);
-        draw.rotate(tile.rotation * RAD);
-        draw.drawImage(copycanvas, tile.videoX, tile.videoY, TILE_WIDTH, TILE_HEIGHT, -TILE_CENTER_WIDTH, -TILE_CENTER_HEIGHT, TILE_WIDTH, TILE_HEIGHT);
-        draw.restore();
+    	processTile(tiles[i]);
     }
+}
+
+function processTile(tile) {
+    if (tile.force > 0.0001) {
+        tile.moveX *= tile.force;
+        tile.moveY *= tile.force;
+        tile.moveRotation *= tile.force;
+        tile.currentX += tile.moveX;
+        tile.currentY += tile.moveY;
+        tile.rotation += tile.moveRotation;
+        tile.rotation %= 360;
+        tile.force *= 0.9;
+        if (tile.currentX <= 0 || tile.currentX >= PAINTRECT.width) {
+            tile.moveX *= -1;
+        }
+        if (tile.currentY <= 0 || tile.currentY >= PAINTRECT.height) {
+            tile.moveY *= -1;
+        }
+    } else if (tile.rotation !== 0 || tile.currentX !== tile.originX || tile.currentY !== tile.originY) {
+        //contract
+        var diffx = (tile.originX - tile.currentX) * 0.2;
+        var diffy = (tile.originY - tile.currentY) * 0.2;
+        var diffRot = (0 - tile.rotation) * 0.2;
+
+        if (Math.abs(diffx) < 0.5) {
+            tile.currentX = tile.originX;
+        } else {
+            tile.currentX += diffx;
+        }
+        if (Math.abs(diffy) < 0.5) {
+            tile.currentY = tile.originY;
+        } else {
+            tile.currentY += diffy;
+        }
+        if (Math.abs(diffRot) < 0.5) {
+            tile.rotation = 0;
+        } else {
+            tile.rotation += diffRot;
+        }
+    } else {
+        tile.force = 0;
+    }
+    draw.save();
+    draw.translate(tile.currentX, tile.currentY);
+    draw.rotate(tile.rotation * RAD);
+    draw.drawImage(copycanvas, tile.videoX, tile.videoY, TILE_WIDTH, TILE_HEIGHT, -TILE_CENTER_WIDTH, -TILE_CENTER_HEIGHT, TILE_WIDTH, TILE_HEIGHT);
+    draw.restore();
 }
 
 function explode(x, y) {
