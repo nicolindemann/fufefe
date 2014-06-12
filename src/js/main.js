@@ -101,7 +101,7 @@ function processFrame() {
     draw.clearRect(PAINTRECT.x, PAINTRECT.y, PAINTRECT.width, PAINTRECT.height);
 
     for (var i = 0; i < tiles.length; i++) {
-    	processTile(tiles[i]);
+        processTile(tiles[i]);
     }
 }
 
