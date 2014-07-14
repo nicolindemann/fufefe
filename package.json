@@ -4,7 +4,7 @@
   "author": "Nico Lindemann <nicolindemann@gmail.com>",
   "description": "fufefe",
   "devDependencies": {
-    "bower": ">=1.2.8",
+    "bower": ">=1.3.8",
     "grunt": ">=0.4.2",
     "grunt-cli": ">=0.1.11",
     "grunt-contrib-concat": ">=0.3.0",
