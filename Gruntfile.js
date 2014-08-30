@@ -68,7 +68,27 @@ module.exports = function (grunt) {
 
               ]
             }
-          }
+          },
+            
+        watch: {
+          scripts: {
+            files: ['src/**/*.*', 'src/*.*'],
+            tasks: ['jshint', 'concat',  'cssmin', 'copy'],
+            options: {
+              spawn: false,
+            },
+          },
+        },
+            
+        connect: {
+              server: {
+                options: {
+                  port: 9001,
+                  base: './public'
+                }
+              }
+            }
+
 
     });
 
@@ -78,8 +98,10 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-copy');
-
+    grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-connect');
 
     grunt.registerTask('build', ['jshint', 'bower:install', 'concat', 'uglify', 'copy', 'cssmin', 'bower:clean']);
+    grunt.registerTask('dev', ['jshint', 'bower:install', 'concat',  'cssmin', 'copy', 'cssmin', 'connect', 'watch']);
 
 };
