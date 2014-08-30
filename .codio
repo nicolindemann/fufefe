@@ -7,7 +7,6 @@
 
 // Preview button configuration
   "preview": {
-        "Project Index": "https://{{domain}}/",
         "Box URL": "http://{{domain}}:3000/",
         "Ungit": "https://{{domain}}:9501/#/repository?path=/home/codio/workspace"
   }
