@@ -2,6 +2,7 @@ language: node_js
 node_js:
 - '0.11'
 - '0.10'
+before_script: 'echo -e "Host *\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config'
 before_install:
 - openssl aes-256-cbc -K $encrypted_5ea2ede44f46_key -iv $encrypted_5ea2ede44f46_iv
   -in pagodakey.enc -out pagodakey -d
@@ -14,6 +15,3 @@ after_success:
    - rm .gitignore
    - git add public
    - git push pagoda master
-   - on:
-      repo: nicolindemann/fufefe
-      branch: master
