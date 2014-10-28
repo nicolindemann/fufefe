@@ -536,4 +536,3 @@ if (is_array($tmp) && isset($tmp['location']) && file_exists($tmp['location'])) 
 setHeaders(true); //no-cache
 remove_old_files();
 echo $param_callback, '(', json_encode_string('error: html2canvas-proxy-php: ' . $response['error']), ');';
-?>
