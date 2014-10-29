@@ -1,4 +1,18 @@
 language: node_js
 node_js:
-  - "0.11"
-  - "0.10"
+- '0.11'
+- '0.10'
+before_install:
+  - openssl aes-256-cbc -K $encrypted_5ea2ede44f46_key -iv $encrypted_5ea2ede44f46_iv
+  -in pagodakey.enc -out ~/.ssh/id_rsa -d
+  - chmod 600 ~/.ssh/id_rsa
+  - echo -e "Host <deploy host>\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+  - eval "$(ssh-agent)"
+  - ssh-add
+after_success:
+  - git remote add pagoda git@git.pagodabox.com:fufefe.git
+  - git remote -v
+  - git status
+  - rm .gitignore
+  - git add public
+  - test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master" && git push pagoda master
