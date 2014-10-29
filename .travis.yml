@@ -10,9 +10,9 @@ before_install:
   - eval "$(ssh-agent)"
   - ssh-add
 after_success:
-   - git remote add pagoda git@git.pagodabox.com:fufefe.git
-   - git remote -v
-   - git status
-   - rm .gitignore
-   - git add public
-   - test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master" && git push pagoda master
+  - git remote add pagoda git@git.pagodabox.com:fufefe.git
+  - git remote -v
+  - git status
+  - rm .gitignore
+  - git add public
+  - test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master" && git push pagoda master
