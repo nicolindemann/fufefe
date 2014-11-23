@@ -37,7 +37,7 @@ module.exports = function (grunt) {
         },
 
         jshint: {
-            files: ["src/js/main.js", "Gruntfile.js"]
+            files: ['src/js/main.js', 'Gruntfile.js']
         },
         
         uglify: {
