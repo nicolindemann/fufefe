@@ -21,7 +21,7 @@ var PAINTRECT = {
     height: 0
 };
 var iframe;
-var url = "http://blog.fefe.de";
+var url = 'http://blog.fefe.de';
 var RAD = Math.PI / 180;
 var tiles = [];
 
@@ -216,8 +216,8 @@ $(function () {
             xhr2: false,
             url: urlParts.href
         },
-        url: "http://" + window.location.host + "/index.php",
-        dataType: "jsonp",
+        url: 'http://' + window.location.host + '/index.php',
+        dataType: 'jsonp',
         success: function (html) {
             iframe = document.createElement('iframe');
             $(iframe).css({
