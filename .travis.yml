@@ -1,16 +1,14 @@
 language: node_js
 node_js:
 - '0.11'
-before_install:
-- openssl aes-256-cbc -K $encrypted_5ea2ede44f46_key -iv $encrypted_5ea2ede44f46_iv -in pagoda.enc -out ~/.ssh/pagoda -d
-- chmod 600 ~/.ssh/pagoda
-- echo -e "Host *\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
-- eval "$(ssh-agent)"
-- ssh-add ~/.ssh/pagoda
-after_success:
-- git remote add pagoda git@git.pagodabox.com:fufefe.git
-- git remote -v
-- git status
-- rm .gitignore
-- git add public
-- test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master" && git push pagoda master
+after_install:
+- grunt build
+deploy:
+  provider: cloudcontrol
+  email: 'nico.lindemann@proux.de'
+  deployment: "fufefe/default"
+  skip_cleanup: true
+  on:
+    branch: master
+  password:
+    secure: i3vhLik1B0BactRXyFSADBou9cwtytfxFnH1UJwURT4GFrXP9Mg6ri3zzeOeq8LuFLrJ50Izx1Pf/Op6hqH5glHkc3SAfONi5ZkTRuoeXhxPaDeKJNTWmU/nSbwKmSfTZJgMok59ryw7NDaiDjTs3CzcW2z4nztOHn5l6BdeEgc=
