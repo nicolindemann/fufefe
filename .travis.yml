@@ -1,8 +1,7 @@
 language: node_js
 node_js:
 - '0.11'
-after_install:
-- grunt build
+script: grunt build
 deploy:
   provider: cloudcontrol
   email: 'nico.lindemann@proux.de'
