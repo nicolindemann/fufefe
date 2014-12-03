@@ -1,7 +1,10 @@
 language: node_js
 node_js:
-- '0.11'
-script: grunt build
+  - '0.11'
+script:
+  - grunt build
+  - git add .
+  - git commit -m "Build artifacts"
 deploy:
   provider: cloudcontrol
   email: 'nico.lindemann@proux.de'
