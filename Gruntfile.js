@@ -27,7 +27,7 @@ module.exports = function (grunt) {
                 }
             }
         },
-        
+
         cssmin: {
             minify: {
                 src: 'public/css/style.min.css',
@@ -37,9 +37,9 @@ module.exports = function (grunt) {
         },
 
         jshint: {
-            files: ['src/js/main.js', 'Gruntfile.js']
+            files: ['src/**/*.js', '*.js', '*.json']
         },
-        
+
         uglify: {
             dist: {
                 files: {
@@ -60,7 +60,7 @@ module.exports = function (grunt) {
                 dest: 'public/js/script.min.js'
             }
         },
-        
+
         copy: {
             main: {
               files: [
@@ -69,7 +69,7 @@ module.exports = function (grunt) {
               ]
             }
           },
-            
+
         watch: {
           scripts: {
             files: ['src/**/*.*', 'src/*.*'],
@@ -79,7 +79,7 @@ module.exports = function (grunt) {
             },
           },
         },
-            
+
         connect: {
               server: {
                 options: {
@@ -87,7 +87,18 @@ module.exports = function (grunt) {
                   base: './public'
                 }
               }
-            }
+          },
+
+          validation: {
+              options: {
+                  failHard : true,
+                  stoponerror : false,
+                  reset: true
+              },
+              files: {
+                  src: ['*.html']
+              }
+          },
 
 
     });
@@ -100,8 +111,12 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-connect');
+    grunt.loadNpmTasks('grunt-travis-lint');
+    grunt.loadNpmTasks('grunt-html-validation');
 
-    grunt.registerTask('build', ['jshint', 'bower:install', 'concat', 'uglify', 'copy', 'cssmin', 'bower:clean']);
-    grunt.registerTask('dev', ['jshint', 'bower:install', 'concat',  'cssmin', 'copy', 'cssmin', 'connect', 'watch']);
+    grunt.registerTask('build', ['bower:install', 'concat', 'uglify', 'copy', 'cssmin', 'bower:clean']);
+    grunt.registerTask('dev', ['bower:install', 'concat',  'cssmin', 'copy', 'cssmin', 'connect', 'watch']);
+    grunt.registerTask('test', ['jshint', 'travis-lint', 'validation']);
+
 
 };

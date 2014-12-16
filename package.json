@@ -6,6 +6,9 @@
         "email":"nico.lindemann@proux.de"
     },
   "description": "fufefe",
+  "scripts": {
+      "test": "grunt test"
+  },
   "devDependencies": {
     "bower": "*",
     "grunt": "*",
@@ -13,11 +16,13 @@
     "grunt-contrib-concat": "*",
     "grunt-contrib-jshint": "*",
     "grunt-contrib-uglify": "*",
-    "grunt-contrib-cssmin": "*",  
+    "grunt-contrib-cssmin": "*",
     "grunt-bower-task": "*",
     "grunt-contrib-copy" : "*",
     "grunt-contrib-watch" : "*",
-    "grunt-contrib-connect" : "*"
+    "grunt-contrib-connect" : "*",
+    "grunt-travis-lint": "*",
+    "grunt-html-validation": "*"
   },
   "repository": {
     "type": "git",
