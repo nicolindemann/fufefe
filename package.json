@@ -1,13 +1,19 @@
 {
   "name": "fufefe",
-  "version": "1.0.1",
+  "version": "1.0.2",
     "author": {
         "name":"Nico Lindemann",
         "email":"nico.lindemann@proux.de"
     },
   "description": "fufefe",
+  "license" : "MIT",
   "scripts": {
-      "test": "grunt test"
+      "test": "node_modules/.bin/grunt test"
+  },
+  "dependencies" : {
+      "normalize.css" : "*",
+      "jquery" : "*",
+      "html2canvas" : "git://github.com/niklasvh/html2canvas.git"
   },
   "devDependencies": {
     "bower": "*",
@@ -22,10 +28,14 @@
     "grunt-contrib-watch" : "*",
     "grunt-contrib-connect" : "*",
     "grunt-travis-lint": "*",
-    "grunt-html-validation": "*"
+    "grunt-html-validation": "*",
+    "grunt-git" : "*"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/nicolindemann/fufefe.git"
+  },
+  "bugs" : {
+    "url" : "https://github.com/nicolindemann/fufefe/issues"
   }
 }
