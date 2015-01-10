@@ -1,0 +1,3 @@
+[submodule "proxy"]
+	path = proxy
+	url = https://github.com/nicolindemann/html2canvas-php-proxy.git

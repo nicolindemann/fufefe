@@ -29,7 +29,6 @@
     "grunt-contrib-connect" : "*",
     "grunt-travis-lint": "*",
     "grunt-html-validation": "*",
-    "grunt-git" : "*"
   },
   "repository": {
     "type": "git",
