@@ -28,8 +28,7 @@
     "grunt-contrib-watch" : "*",
     "grunt-contrib-connect" : "*",
     "grunt-travis-lint": "*",
-    "grunt-html-validation": "*",
-    "grunt-git" : "*"
+    "grunt-html-validation": "*"
   },
   "repository": {
     "type": "git",

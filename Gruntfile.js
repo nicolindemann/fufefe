@@ -71,18 +71,7 @@ module.exports = function (grunt) {
               files: {
                   src: ['*.html']
               }
-          },
-
-          gitclone: {
-              clone: {
-                  options: {
-                      repository: 'https://github.com/nicolindemann/html2canvas-php-proxy.git',
-                      branch: 'master',
-                      directory: 'proxy'
-                  }
-              }
-          },
-
+          }
 
     });
 
@@ -95,10 +84,9 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-travis-lint');
     grunt.loadNpmTasks('grunt-html-validation');
-    grunt.loadNpmTasks('grunt-git');
 
-    grunt.registerTask('build', ['gitclone', 'concat', 'uglify', 'copy', 'cssmin']);
-    grunt.registerTask('dev', ['gitclone', 'concat',  'cssmin', 'copy', 'cssmin', 'connect', 'watch']);
+    grunt.registerTask('build', ['concat', 'uglify', 'copy', 'cssmin']);
+    grunt.registerTask('dev', ['concat',  'cssmin', 'copy', 'cssmin', 'connect', 'watch']);
     grunt.registerTask('test', ['jshint', 'travis-lint', 'validation']);
 
 
