@@ -36,7 +36,7 @@ function iframeLoad(iframe) {
 
             copycanvas = document.getElementById('sourcecopy');
             var outputcanvas = document.getElementById('output');
-            
+
             outputcanvas.onmousedown = function (event) {
                 dropBomb(event, event.target);
             };
@@ -216,7 +216,7 @@ $(function () {
             xhr2: false,
             url: urlParts.href
         },
-        url: 'http://' + window.location.host + '/index.php',
+        url: 'http://' + window.location.host + '/proxy/html2canvasproxy.php',
         dataType: 'jsonp',
         success: function (html) {
             iframe = document.createElement('iframe');
