@@ -38,8 +38,7 @@ module.exports = function (grunt) {
         copy: {
             main: {
               files: [
-                {src: 'node_modules/normalize.css', dest: 'public/css/style.min.css'},
-
+                  {src: 'node_modules/normalize.css/normalize.css', dest: 'public/css/style.min.css'},
               ]
             }
           },
