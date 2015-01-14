@@ -1,40 +1,40 @@
 {
-  "name": "fufefe",
-  "version": "1.0.3",
+    "name": "fufefe",
+    "version": "1.0.3",
     "author": {
-        "name":"Nico Lindemann",
-        "email":"nico.lindemann@proux.de"
+        "name": "Nico Lindemann",
+        "email": "nico.lindemann@proux.de"
     },
-  "description": "fufefe",
-  "license" : "MIT",
-  "scripts": {
-      "test": "node_modules/.bin/grunt test"
-  },
-  "dependencies" : {
-      "normalize.css" : "*",
-      "jquery" : "*",
-      "html2canvas" : "git://github.com/niklasvh/html2canvas.git"
-  },
-  "devDependencies": {
-    "bower": "*",
-    "grunt": "*",
-    "grunt-cli": "*",
-    "grunt-contrib-concat": "*",
-    "grunt-contrib-jshint": "*",
-    "grunt-contrib-uglify": "*",
-    "grunt-contrib-cssmin": "*",
-    "grunt-bower-task": "*",
-    "grunt-contrib-copy" : "*",
-    "grunt-contrib-watch" : "*",
-    "grunt-contrib-connect" : "*",
-    "grunt-travis-lint": "*",
-    "grunt-html-validation": "*"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/nicolindemann/fufefe.git"
-  },
-  "bugs" : {
-    "url" : "https://github.com/nicolindemann/fufefe/issues"
-  }
+    "description": "fufefe",
+    "license": "MIT",
+    "scripts": {
+        "test": "node_modules/.bin/grunt test"
+    },
+    "dependencies": {
+        "normalize.css": "*",
+        "jquery": "*",
+        "html2canvas": "git://github.com/niklasvh/html2canvas.git"
+    },
+    "devDependencies": {
+        "bower": "*",
+        "grunt": "*",
+        "grunt-cli": "*",
+        "grunt-contrib-concat": "*",
+        "grunt-contrib-jshint": "*",
+        "grunt-contrib-uglify": "*",
+        "grunt-contrib-cssmin": "*",
+        "grunt-bower-task": "*",
+        "grunt-contrib-copy": "*",
+        "grunt-contrib-watch": "*",
+        "grunt-contrib-connect": "*",
+        "grunt-travis-lint": "*",
+        "grunt-html-validation": "*"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/nicolindemann/fufefe.git"
+    },
+    "bugs": {
+        "url": "https://github.com/nicolindemann/fufefe/issues"
+    }
 }
