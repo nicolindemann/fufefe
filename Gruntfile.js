@@ -1,5 +1,6 @@
 /*global module:false*/
-module.exports = function (grunt) {
+
+module.exports = function(grunt) {
 
     grunt.initConfig({
 
@@ -29,49 +30,51 @@ module.exports = function (grunt) {
             },
             dist: {
                 src: ['node_modules/jquery/dist/jquery.js',
-                      'node_modules/html2canvas/dist/html2canvas.js',
-                      'src/js/*.js'],
+                    'node_modules/html2canvas/dist/html2canvas.js',
+                    'src/js/*.js'
+                ],
                 dest: 'public/js/script.min.js'
             }
         },
 
         copy: {
             main: {
-              files: [
-                  {src: 'node_modules/normalize.css/normalize.css', dest: 'public/css/style.min.css'},
-              ]
+                files: [{
+                    src: 'node_modules/normalize.css/normalize.css',
+                    dest: 'public/css/style.min.css'
+                }, ]
             }
-          },
+        },
 
         watch: {
-          scripts: {
-            files: ['src/**/*.*', 'src/*.*'],
-            tasks: ['jshint', 'concat',  'cssmin', 'copy'],
-            options: {
-              spawn: false,
+            scripts: {
+                files: ['src/**/*.*', 'src/*.*'],
+                tasks: ['jshint', 'concat', 'cssmin', 'copy'],
+                options: {
+                    spawn: false,
+                },
             },
-          },
         },
 
         connect: {
-              server: {
+            server: {
                 options: {
-                  port: 9001,
-                  base: './public'
+                    port: 9001,
+                    base: './public'
                 }
-              }
-          },
+            }
+        },
 
-          validation: {
-              options: {
-                  failHard : true,
-                  stoponerror : false,
-                  reset: true
-              },
-              files: {
-                  src: ['*.html']
-              }
-          }
+        validation: {
+            options: {
+                failHard: true,
+                stoponerror: false,
+                reset: true
+            },
+            files: {
+                src: ['*.html']
+            }
+        }
 
     });
 
@@ -86,8 +89,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-html-validation');
 
     grunt.registerTask('build', ['concat', 'uglify', 'copy', 'cssmin']);
-    grunt.registerTask('dev', ['concat',  'cssmin', 'copy', 'cssmin', 'connect', 'watch']);
+    grunt.registerTask('dev', ['concat', 'cssmin', 'copy', 'cssmin', 'connect', 'watch']);
     grunt.registerTask('test', ['jshint', 'travis-lint', 'validation']);
-
 
 };
