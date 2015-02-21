@@ -1,17 +1,18 @@
 language: node_js
 before_script:
-  - git config --global user.email "nico.lindemann@proux.de"
-  - git config --global user.name "Travis-CI"
+- git config --global user.email "nico.lindemann@proux.de"
+- git config --global user.name "Travis-CI"
 script:
-  - grunt build
-  - git add .
-  - git commit -m "Build artifacts"
+- grunt build
+- git add .
+- git commit -m "Build artifacts"
 deploy:
-  provider: cloudcontrol
-  email: 'nico.lindemann@proux.de'
-  deployment: "fufefe/default"
+  provider: heroku
   skip_cleanup: true
+  buildpack: php
+  api_key:
+    secure: PS+HYJ1c8o2uSNatCZCZkOkZzCC10g0Zqk0bOqY0qOy8kpgQ/2zDOXECLt60xhDKOSNNVYT6tY7PeuCyD+z6rsXDcVfRQtZiGM6tWdl5BPHa8NBiUlG8AkhI6+RujnvplI9bpNo4X4XEAJjsI2gFZu43XqLFmDjPdrGtgFng2BQ=
+  app: fufefe
   on:
+    repo: nicolindemann/fufefe
     branch: master
-  password:
-    secure: i3vhLik1B0BactRXyFSADBou9cwtytfxFnH1UJwURT4GFrXP9Mg6ri3zzeOeq8LuFLrJ50Izx1Pf/Op6hqH5glHkc3SAfONi5ZkTRuoeXhxPaDeKJNTWmU/nSbwKmSfTZJgMok59ryw7NDaiDjTs3CzcW2z4nztOHn5l6BdeEgc=
