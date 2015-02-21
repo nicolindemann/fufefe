@@ -15,4 +15,4 @@ deploy:
   app: fufefe
   on:
     repo: nicolindemann/fufefe
-    branch: master
+    tags: true
