@@ -21,7 +21,7 @@ var PAINTRECT = {
   height: 0
 }
 var iframe
-var url = 'http://blog.fefe.de'
+var url = '//blog.fefe.de'
 var RAD = Math.PI / 180
 var tiles = []
 
@@ -211,7 +211,7 @@ $(function () {
       xhr2: false,
       url: urlParts.href
     },
-    url: 'http://' + window.location.host + '/proxy/html2canvasproxy.php',
+    url: '//' + window.location.host + '/proxy/html2canvasproxy.php',
     dataType: 'jsonp',
     success: function (html) {
       iframe = document.createElement('iframe')
