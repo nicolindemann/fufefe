@@ -15,13 +15,9 @@ node_js:
 before_install:
   - npm i -g npm@^2.0.0
 before_script:
-- git config --global user.email "nico.lindemann@proux.de"
-- git config --global user.name "Travis-CI"
 - npm prune
 script:
 - grunt build
-- git add .
-- git commit -m "Build artifacts"
 deploy:
   provider: heroku
   skip_cleanup: true
@@ -31,7 +27,6 @@ deploy:
   app: fufefe
   on:
     repo: nicolindemann/fufefe
-    tags: true
 after_success:
   - 'curl -Lo travis_after_all.py https://git.io/travis_after_all'
   - python travis_after_all.py

@@ -30,7 +30,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nicolindemann/fufefe.git"
+    "url": "https://github.com/nicolindemann/fufefe.git"
   },
   "bugs": {
     "url": "https://github.com/nicolindemann/fufefe/issues"
@@ -41,6 +41,5 @@
     }
   },
   "homepage": "https://github.com/nicolindemann/fufefe#readme",
-  "version": "0.0.0-semantically-released",
   "main": "src/main.js"
 }
