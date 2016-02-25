@@ -1,39 +1,46 @@
 {
-    "name": "fufefe",
-    "version": "1.0.6",
-    "author": {
-        "name": "Nico Lindemann",
-        "email": "nico.lindemann@proux.de"
-    },
-    "description": "fufefe",
-    "license": "MIT",
-    "scripts": {
-        "test": "node_modules/.bin/grunt test"
-    },
-    "dependencies": {
-        "normalize.css": "*",
-        "jquery": "*",
-        "html2canvas": "git://github.com/niklasvh/html2canvas.git"
-    },
-    "devDependencies": {
-        "grunt": "*",
-        "grunt-cli": "*",
-        "grunt-contrib-concat": "*",
-        "grunt-contrib-jshint": "*",
-        "grunt-contrib-uglify": "*",
-        "grunt-contrib-cssmin": "*",
-        "grunt-bower-task": "*",
-        "grunt-contrib-copy": "*",
-        "grunt-contrib-watch": "*",
-        "grunt-contrib-connect": "*",
-        "grunt-travis-lint": "*",
-        "grunt-html-validation": "*"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/nicolindemann/fufefe.git"
-    },
-    "bugs": {
-        "url": "https://github.com/nicolindemann/fufefe/issues"
+  "name": "fufefe",
+  "author": {
+    "name": "Nico Lindemann",
+    "email": "nico.lindemann@proux.de"
+  },
+  "description": "fufefe",
+  "license": "MIT",
+  "scripts": {
+    "test": "node_modules/.bin/grunt test",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+  },
+  "dependencies": {
+    "html2canvas": "git://github.com/niklasvh/html2canvas.git",
+    "jquery": "^2.2.1",
+    "normalize.css": "^3.0.3"
+  },
+  "devDependencies": {
+    "cz-conventional-changelog": "^1.1.5",
+    "grunt": "^0.4.5",
+    "grunt-bower-task": "^0.4.0",
+    "grunt-cli": "^0.1.13",
+    "grunt-contrib-concat": "^1.0.0",
+    "grunt-contrib-connect": "^0.11.2",
+    "grunt-contrib-copy": "^0.8.2",
+    "grunt-contrib-cssmin": "^0.14.0",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-uglify": "^0.11.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-html-validation": "^0.1.18",
+    "grunt-travis-lint": "0.0.3",
+    "semantic-release": "^4.3.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nicolindemann/fufefe.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nicolindemann/fufefe/issues"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
     }
+  }
 }

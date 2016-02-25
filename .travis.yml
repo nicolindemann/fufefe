@@ -1,7 +1,23 @@
+sudo: false
 language: node_js
+cache:
+  directories:
+    - node_modules
+notifications:
+  email: false
+node_js:
+  - '4'
+  - iojs-v3
+  - iojs-v2
+  - iojs-v1
+  - '0.12'
+  - '0.10'
+before_install:
+  - npm i -g npm@^2.0.0
 before_script:
 - git config --global user.email "nico.lindemann@proux.de"
 - git config --global user.name "Travis-CI"
+- npm prune
 script:
 - grunt build
 - git add .
@@ -16,3 +32,11 @@ deploy:
   on:
     repo: nicolindemann/fufefe
     tags: true
+after_success:
+  - 'curl -Lo travis_after_all.py https://git.io/travis_after_all'
+  - python travis_after_all.py
+  - 'export $(cat .to_export_back) &> /dev/null'
+  - npm run semantic-release
+branches:
+  except:
+    - "/^v\\d+\\.\\d+\\.\\d+$/"
