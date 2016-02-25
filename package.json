@@ -41,5 +41,6 @@
     }
   },
   "homepage": "https://github.com/nicolindemann/fufefe#readme",
+  "version": "0.0.0-semantically-released",
   "main": "src/main.js"
 }
