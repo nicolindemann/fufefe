@@ -1,13 +1,10 @@
 {
   "name": "fufefe",
-  "author": {
-    "name": "Nico Lindemann",
-    "email": "nico.lindemann@proux.de"
-  },
+  "author": "Nico Lindemann <nico.lindemann@proux.de>",
   "description": "fufefe",
   "license": "MIT",
   "scripts": {
-    "test": "node_modules/.bin/grunt test",
+    "test": "grunt test",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "dependencies": {
@@ -33,7 +30,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/nicolindemann/fufefe.git"
+    "url": "git+https://github.com/nicolindemann/fufefe.git"
   },
   "bugs": {
     "url": "https://github.com/nicolindemann/fufefe/issues"
@@ -42,5 +39,7 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
-  }
+  },
+  "homepage": "https://github.com/nicolindemann/fufefe#readme",
+  "main": "src/main.js"
 }
