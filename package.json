@@ -23,7 +23,7 @@
     "grunt-contrib-cssmin": "^1.0.0",
     "grunt-contrib-jshint": "^1.0.0",
     "grunt-contrib-uglify": "^1.0.0",
-    "grunt-contrib-watch": "^0.6.1",
+    "grunt-contrib-watch": "^1.0.0",
     "grunt-html-validation": "^0.1.18",
     "grunt-travis-lint": "0.0.3",
     "semantic-release": "^4.3.5"
