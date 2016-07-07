@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "html2canvas": "git://github.com/niklasvh/html2canvas.git",
-    "jquery": "^3.0.0",
+    "jquery": "^3.1.0",
     "normalize.css": "^4.2.0"
   },
   "devDependencies": {
