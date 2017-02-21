@@ -13,7 +13,7 @@
     "normalize.css": "^5.0.0"
   },
   "devDependencies": {
-    "cz-conventional-changelog": "^1.1.5",
+    "cz-conventional-changelog": "^2.0.0",
     "grunt": "^1.0.1",
     "grunt-bower-task": "^0.4.0",
     "grunt-cli": "^1.1.0",
