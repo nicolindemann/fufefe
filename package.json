@@ -10,7 +10,7 @@
   "dependencies": {
     "html2canvas": "git://github.com/niklasvh/html2canvas.git",
     "jquery": "^3.2.1",
-    "normalize.css": "^6.0.0"
+    "normalize.css": "^7.0.0"
   },
   "devDependencies": {
     "cz-conventional-changelog": "^2.0.0",
