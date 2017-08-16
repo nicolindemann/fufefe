@@ -22,11 +22,11 @@
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-cssmin": "^2.0.0",
     "grunt-contrib-jshint": "^1.0.0",
-    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-contrib-uglify": "^3.0.0",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-html-validation": "^0.1.18",
     "grunt-travis-lint": "0.0.3",
-    "semantic-release": "^6.3.6"
+    "semantic-release": "^7.0.1"
   },
   "repository": {
     "type": "git",
