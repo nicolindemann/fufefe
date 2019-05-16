@@ -38,9 +38,12 @@ Thumbs.db
 
 # Package Manager Sources #
 ###########################
-node_modules/*
+node_modules/
 bower_components/*
 components/*
 tmp/*
 validation-report.json
 validation-status.json
+public/css 
+public/js
+package-lock.json

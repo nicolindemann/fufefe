@@ -5,6 +5,7 @@
   "license": "MIT",
   "scripts": {
     "test": "grunt test",
+    "now-build": "grunt build",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "dependencies": {
