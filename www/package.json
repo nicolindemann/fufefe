@@ -1,0 +1,14 @@
+{
+  "author": "Nico Lindemann <nico.lindemann@proux.de>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "now-build": "next build && next export -o dist"
+  },
+  "dependencies": {
+    "html2canvas": "^1.0.0-rc.1",
+    "next": "^8.1.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
+}

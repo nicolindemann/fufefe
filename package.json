@@ -1,46 +1,21 @@
 {
   "name": "fufefe",
-  "author": "Nico Lindemann <nico.lindemann@proux.de>",
-  "description": "fufefe",
-  "license": "MIT",
+  "version": "1.0.0",
+  "description": "www.fufefe.de",
   "scripts": {
-    "test": "grunt test",
-    "now-build": "grunt build",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
-  },
-  "dependencies": {
-    "html2canvas": "git://github.com/niklasvh/html2canvas.git",
-    "jquery": "^3.4.1",
-    "normalize.css": "^8.0.1"
-  },
-  "devDependencies": {
-    "cz-conventional-changelog": "^2.1.0",
-    "grunt": "^1.0.4",
-    "grunt-bower-task": "^0.5.0",
-    "grunt-cli": "^1.3.2",
-    "grunt-contrib-concat": "^1.0.1",
-    "grunt-contrib-connect": "^2.0.0",
-    "grunt-contrib-copy": "^1.0.0",
-    "grunt-contrib-cssmin": "^3.0.0",
-    "grunt-contrib-jshint": "^2.1.0",
-    "grunt-contrib-uglify": "^4.0.1",
-    "grunt-contrib-watch": "^1.1.0",
-    "grunt-html-validation": "^0.1.18",
-    "grunt-travis-lint": "0.0.3",
-    "semantic-release": "^15.13.12"
+    "test": "standard --fix"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/nicolindemann/fufefe.git"
+    "url": "git+https://github.com/nicolindemann/fufefe.git"
   },
+  "author": "",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/nicolindemann/fufefe/issues"
   },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
-  },
   "homepage": "https://github.com/nicolindemann/fufefe#readme",
-  "main": "src/main.js"
+  "dependencies": {
+    "standard": "^12.0.1"
+  }
 }
