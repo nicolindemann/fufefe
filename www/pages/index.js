@@ -7,7 +7,7 @@ export default class Index extends Component {
     const tmpEl = document.createElement('div')
     tmpEl.innerHTML = htmlContent
     document.body.appendChild(tmpEl)
-  
+
     const canvas = await html2canvas(tmpEl, { scale: 1, allowTaint: true, taintTest: false, logging: true })
     const paintDim = {
       x: 0,
@@ -22,18 +22,18 @@ export default class Index extends Component {
     const outputcanvas = document.getElementById('output')
     let tile
     let y = 0
-  
+
     copycanvas.width = canvas.width
     copycanvas.height = canvas.height
     copycanvas
       .getContext('2d')
       .drawImage(canvas, 0, 0, paintDim.width, paintDim.height)
-  
+
     outputcanvas.width = canvas.width
     outputcanvas.height = canvas.height
-  
+
     const canvasContext = outputcanvas.getContext('2d')
-  
+
     outputcanvas.onmousedown = (e) => {
       let posx = 0
       let posy = 0
@@ -43,13 +43,13 @@ export default class Index extends Component {
       } else if (e.clientX || e.clientY) {
         posx = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft
         posy = e.clientY + document.body.scrollTop + document.documentElement.scrollTop
-      }    
+      }
       tiles.forEach(tile => tile.impactNearby(posx - e.target.offsetLeft, posy - e.target.offsetTop))
       tiles.sort((a, b) => (a.force - b.force))
       canvasContext.clearRect(paintDim.x, paintDim.y, paintDim.width, paintDim.height)
       tiles.forEach(tile => tile.cycle(paintDim.width, paintDim.height).draw(copycanvas, canvasContext))
     }
-  
+
     while (y < height) {
       let x = 0
       while (x < width) {
@@ -60,17 +60,17 @@ export default class Index extends Component {
       }
       y += tile.height
     }
-  
+
     setInterval(() => {
       canvasContext.clearRect(paintDim.x, paintDim.y, paintDim.width, paintDim.height)
       tiles.forEach(tile => tile.cycle(paintDim.width, paintDim.height).draw(copycanvas, canvasContext))
     }, 33)
-  
+
     tmpEl.parentElement.removeChild(tmpEl)
   }
 
   async componentDidMount () {
-    let response = await window.fetch('//' + window.location.host + 
+    let response = await window.fetch('//' + window.location.host +
       '/proxy/?url=' + encodeURIComponent('https://blog.fefe.de'))
     const html = await response.text()
     response = await window.fetch(html)
@@ -82,7 +82,7 @@ export default class Index extends Component {
 
   render () {
     return (<main>
-      <body style={{margin: 0, paddong: 0}}>
+      <body style={{ margin: 0, padding: 0 }}>
         <div style={{ display: 'none' }}>
           <canvas id='sourcecopy' />
         </div>
