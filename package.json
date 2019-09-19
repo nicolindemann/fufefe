@@ -16,6 +16,6 @@
   },
   "homepage": "https://github.com/nicolindemann/fufefe#readme",
   "dependencies": {
-    "standard": "^12.0.1"
+    "standard": "^14.3.1"
   }
 }
