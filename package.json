@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "www.fufefe.de",
   "scripts": {
-    "test": "standard --fix"
+    "test": "standard --fix",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -16,6 +18,8 @@
   },
   "homepage": "https://github.com/nicolindemann/fufefe#readme",
   "dependencies": {
-    "standard": "^12.0.1"
-  }
+    "standard": "^12.0.1",
+    "snyk": "^1.189.0"
+  },
+  "snyk": true
 }
