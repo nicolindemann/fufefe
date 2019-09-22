@@ -81,13 +81,14 @@ export default class Index extends Component {
   }
 
   render () {
-    return (<main>
-      <body style={{ margin: 0, padding: 0 }}>
-        <div style={{ display: 'none' }}>
-          <canvas id='sourcecopy' />
-        </div>
-        <canvas id='output' />
-      </body>
-    </main>)
+    return (
+      <main>
+        <body style={{ margin: 0, padding: 0 }}>
+          <div style={{ display: 'none' }}>
+            <canvas id='sourcecopy' />
+          </div>
+          <canvas id='output' />
+        </body>
+      </main>)
   }
 }
