@@ -40,9 +40,10 @@ Thumbs.db
 ###########################
 node_modules/*
 bower_components/*
-components/*
 tmp/*
 validation-report.json
 validation-status.json
 package-lock.json
 node_modules
+
+.vercel

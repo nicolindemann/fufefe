@@ -1,8 +1,9 @@
-import { Component } from 'react'
 import html2canvas from 'html2canvas'
-import Tile from '../components/tile.js'
+import Tile from './tile.js'
+import { Component } from 'react'
+import lzString from 'lz-string'
 
-export default class Index extends Component {
+export default class Body extends Component {
   async initCanvasBattlefield (htmlContent) {
     const tmpEl = document.createElement('div')
     tmpEl.innerHTML = htmlContent
@@ -61,7 +62,7 @@ export default class Index extends Component {
       y += tile.height
     }
 
-    setInterval(() => {
+    setTimeout(() => {
       canvasContext.clearRect(paintDim.x, paintDim.y, paintDim.width, paintDim.height)
       tiles.forEach(tile => tile.cycle(paintDim.width, paintDim.height).draw(copycanvas, canvasContext))
     }, 33)
@@ -70,25 +71,20 @@ export default class Index extends Component {
   }
 
   async componentDidMount () {
-    let response = await window.fetch('//' + window.location.host +
-      '/proxy/?url=' + encodeURIComponent('https://blog.fefe.de'))
+    const response = await window.fetch('//' + window.location.host +
+          '/api/?url=' + encodeURIComponent('https://blog.fefe.de'))
     const html = await response.text()
-    response = await window.fetch(html)
-    const blob = await response.blob()
-    const reader = new window.FileReader()
-    reader.onload = () => this.initCanvasBattlefield(reader.result)
-    reader.readAsText(blob)
+    this.initCanvasBattlefield(lzString.decompressFromUTF16(html))
   }
 
   render () {
     return (
-      <main>
-        <body style={{ margin: 0, padding: 0 }}>
-          <div style={{ display: 'none' }}>
-            <canvas id='sourcecopy' />
-          </div>
-          <canvas id='output' />
-        </body>
-      </main>)
+      <div>
+        <div style={{ display: 'none' }}>
+          <canvas id='sourcecopy' />
+        </div>
+        <canvas id='output' />
+      </div>
+    )
   }
 }
