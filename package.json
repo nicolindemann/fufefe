@@ -2,9 +2,6 @@
   "name": "fufefe",
   "version": "2.0.0",
   "description": "www.fufefe.de",
-  "scripts": {
-    "test": "standard --fix"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nicolindemann/fufefe.git"
@@ -16,12 +13,12 @@
   },
   "homepage": "https://github.com/nicolindemann/fufefe#readme",
   "dependencies": {
-    "bent": "^7.3.1",
-    "html2canvas": "^1.0.0-rc.5",
-    "lz-string": "^1.4.4",
-    "next": "^12.0.1",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.2",
-    "standard": "^17.0.0"
+    "@vercel/analytics": "^1.1.1",
+    "bent": "^7.3.12",
+    "html2canvas": "^1.4.1",
+    "lz-string": "^1.5.0",
+    "next": "^13.5.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }

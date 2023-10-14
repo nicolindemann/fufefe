@@ -6,7 +6,6 @@ export default class Tile {
     this.currentY = currentY
     this.rotation = 0
     this.force = 0
-    this.z = 0
     this.moveX = 0
     this.moveY = 0
     this.moveRotation = 0

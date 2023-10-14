@@ -53,8 +53,8 @@ export default class Body extends Component {
 
     while (y < height) {
       let x = 0
+      tile = new Tile(x, y, x, y, x, y)
       while (x < width) {
-        tile = new Tile(x, y, x, y, x, y)
         tile.moveDirectlyBy((paintDim.width - width) / 2, (paintDim.height - height) / 2)
         tiles.push(tile)
         x += tile.width
@@ -74,7 +74,7 @@ export default class Body extends Component {
     const response = await window.fetch('//' + window.location.host +
           '/api/?url=' + encodeURIComponent('https://blog.fefe.de'))
     const html = await response.text()
-    this.initCanvasBattlefield(lzString.decompressFromUTF16(html))
+    await this.initCanvasBattlefield(lzString.decompressFromUTF16(html))
   }
 
   render () {
