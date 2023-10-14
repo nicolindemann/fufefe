@@ -21,7 +21,6 @@ export default class Body extends Component {
     const height = paintDim.height
     const copycanvas = document.getElementById('sourcecopy')
     const outputcanvas = document.getElementById('output')
-    let tile
     let y = 0
 
     copycanvas.width = canvas.width
@@ -53,8 +52,9 @@ export default class Body extends Component {
 
     while (y < height) {
       let x = 0
-      tile = new Tile(x, y, x, y, x, y)
+      let tile = null
       while (x < width) {
+        tile = new Tile(x, y, x, y, x, y)
         tile.moveDirectlyBy((paintDim.width - width) / 2, (paintDim.height - height) / 2)
         tiles.push(tile)
         x += tile.width
