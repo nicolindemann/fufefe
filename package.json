@@ -7,18 +7,22 @@
     "url": "git+https://github.com/nicolindemann/fufefe.git"
   },
   "author": "",
+  "scripts": {
+    "build": "next build",
+    "start": "next start"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/nicolindemann/fufefe/issues"
   },
   "homepage": "https://github.com/nicolindemann/fufefe#readme",
   "dependencies": {
-    "@vercel/analytics": "^1.1.1",
+    "@vercel/analytics": "^1.4.1",
     "bent": "^7.3.12",
     "html2canvas": "^1.4.1",
     "lz-string": "^1.5.0",
-    "next": "^15.0.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "next": "^15.0.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   }
 }
